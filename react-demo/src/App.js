@@ -51,6 +51,7 @@ class App extends Component {
   }
 
   render() {
+    //组件局部变量state更新后会执行render方法
     console.log('render')
     return (
       <div className="App">
