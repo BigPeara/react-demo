@@ -9,16 +9,49 @@ class App extends Component {
      super(props);
   }
 
-  componentDidMount(){
 
+  componentWillMount(){
+    //render渲染页面前dom加载前执行
+    console.log('componentWillMount')
+  }
+
+  componentDidMount(){
+    //render渲染页面后dom加载结束后执行componentDidMount
+    console.log('componentDidMount')
     const {dispatch}=this.props
 
     dispatch(getMens({},()=>{
-      debugger
+      
     }))
   }
 
+  shouldComponentUpdate(){
+    //组件局部变量state更新render渲染后执行shouldComponentUpdate
+    console.log('shouldComponentUpdate')
+  }
+
+  componentWillUpdate(){
+    //组件局部变量state更新render更新渲染前执行componentWillUpdate
+    console.log('componentWillUpdate')
+  }
+
+  componentDidUpdate(){
+    //组件局部变量state更新当render更新渲染后执行componentDidUpdate
+    console.log('componentDidUpdate')
+  }
+
+  componentWillReceiveProps(){
+    //render渲染初始化不会加载，当父组件的props改变子组件componentWillReceiveProps触发
+    console.log('componentWillReceiveProps')
+  }
+  
+  componentWillUnmount(){
+    //组件卸载后执行componentWillUnmount
+    console.log('componentWillUnmount')
+  }
+
   render() {
+    console.log('render')
     return (
       <div className="App">
         <header className="App-header">
