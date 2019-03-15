@@ -7,6 +7,9 @@ import {getMens} from './actions/action'
 class App extends Component {
   constructor(props,context){
      super(props);
+     this.state={
+       nums:false
+     }
   }
 
 
@@ -18,6 +21,11 @@ class App extends Component {
   componentDidMount(){
     //render渲染页面后dom加载结束后执行componentDidMount
     console.log('componentDidMount')
+
+
+    this.setState({
+      nums:true
+    })
     const {dispatch}=this.props
 
     dispatch(getMens({},()=>{
@@ -60,6 +68,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
+          {this.state.nums?<p>aaaaaaaa</p>:'sajsadksadsadjadskjadkjsa'}
           <a
             className="App-link"
             href="https://reactjs.org"
